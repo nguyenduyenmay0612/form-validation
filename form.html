@@ -47,6 +47,7 @@
     <script>
         Validator({
             form: '#form-1',
+            formGroupSelector: '.form-group',
             errorSelector: '.form-message',
             rules: [
                 Validator.isRequired('#fullname'),
@@ -56,7 +57,11 @@
                 Validator.isConfirmed('#password_confirmation', function () {
                     return document.querySelector('#form-1 #password').value;
                 })
-            ]
+            ],
+            onSubmit: function (data) {
+                //Call API
+                console.log(data);
+            }
         });
     </script>
 </body>
